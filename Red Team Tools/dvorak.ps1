@@ -1,10 +1,30 @@
-$regKey = "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout"
-$dvorak = "hex:00,00,00,00,00,00,00,00,22,00,00,00,2d,00,30,00,24,00,2e,00,\
-11,00,33,00,33,00,11,00,12,00,20,00,34,00,12,00,1b,00,0d,00,0d,00,1b,00,16,\
-00,21,00,17,00,22,00,20,00,23,00,1a,00,0c,00,2e,00,17,00,23,00,24,00,14,00,\
-25,00,31,00,26,00,35,00,1a,00,30,00,31,00,13,00,18,00,26,00,19,00,2f,00,34,\
-00,28,00,10,00,0c,00,28,00,19,00,13,00,18,00,1f,00,1f,00,27,00,2c,00,35,00,\
-15,00,14,00,22,00,16,00,25,00,2f,00,10,00,2d,00,21,00,15,00,27,00,2c,00,00,\
-00,00,00"
+# Define the registry key for the keyboard layout
+$registryKey = "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout"
 
-Set-ItemProperty -Path $regKey -Name "ScanCode Map" -Value $dvorak
+# Define the scan code map to disable the keys
+$scanCodeMap = "00,00,00,00,00,00,00,00,09,00,00,00,13,00,2e,00," +
+"12,00,2f,00,20,00,30,00,14,00,31,00," +
+"32,00,32,00," +
+"1e,00," +
+"21,00," +
+"23,00," +
+"2c,00," +
+"39,00," +
+"3a,00," +
+"3b,00," +
+"3c,00," +
+"3d,00," +
+"3e,00," +
+"3f,00," +
+"40,00," +
+"41,00," +
+"42,00," +
+"43,00," +
+"44,00," +
+"57,00," +
+"58,00," +
+"10e," + 
+"0000"
+
+# Set the keyboard layout to disable the keys
+Set-ItemProperty -Path $registryKey -Name "Scancode Map" -Value $scanCodeMap
